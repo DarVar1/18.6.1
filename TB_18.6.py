@@ -32,9 +32,7 @@ def get_price(message: telebot.types.Message):
         if len(values) != 3:
             raise ExchangeException('Введите команду или 3 параметра')
         quote, base, amount = values
-        print(quote, base, amount)
         total_base = Exchange.get_price(quote, base, amount)
-        print(total_base)
     except ExchangeException as e:
         bot.reply_to(message, f'Ошибка пользователя.\n{e}')
     except Exception as e:
